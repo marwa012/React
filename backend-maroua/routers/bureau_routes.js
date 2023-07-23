@@ -1,0 +1,11 @@
+const express = require("express")
+const bureau_controller = require("../controllers/bureau_controller")
+const {verifyTokenAndauthorization,verifytokenAndAdmin}=require("../middleware/auth")
+const route = express.Router()
+route.post("/create",bureau_controller.create)
+route.get("/getall",bureau_controller.getall)
+route.get("/getbyid/:id",bureau_controller.getById)
+route.get("/getbyname",bureau_controller.getbyname)
+route.put("/update/:id",bureau_controller.update)
+route.delete("/delete/:id",bureau_controller.delete)
+module.exports= route

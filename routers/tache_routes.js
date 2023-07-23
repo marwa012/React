@@ -1,0 +1,10 @@
+const route = require("express").Router()
+const tache_controller = require("../controllers/tache_controller")
+route.post("/create",tache_controller.createTache)
+route.get("/getall",tache_controller.getall)
+route.put("/update/:id",tache_controller.update)
+route.delete("/delete/:id",tache_controller.delete)
+route.get("/getbyname",tache_controller.getbyname)
+route.get("/getbyMem/:id",tache_controller.getbyidtache)
+route.get("/getbyid/:id",tache_controller.getbyid)
+module.exports=route

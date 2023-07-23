@@ -1,0 +1,11 @@
+const express = require("express")
+const route = require("express").Router()
+const upload = require('../middleware/uploadFile')
+const ManagerController = require("../controllers/manager_controller")
+route.post("/register",upload.single("photo"),ManagerController.register)
+route.get("/getall",ManagerController.getall)
+route.get("/getbyid/:id",ManagerController.getbyid)
+route.get("/getbyname",ManagerController.getbyname)
+route.put("/update/:id",ManagerController.updatemanager)
+route.delete("/delete/:id",ManagerController.delete)
+module.exports=route

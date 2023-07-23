@@ -1,0 +1,11 @@
+const route = require("express").Router()
+const {verifytoken} =require ("../middleware/Auth")
+const documentcontroller = require("../controllers/document_controller")
+const upload = require("../middleware/uploadFile")
+route.post("/create",upload.array('photos'),documentcontroller.createDocument)
+route.get("/getall",documentcontroller.getall)
+route.get("/getbyid/:id",documentcontroller.getbyid)
+route.get("/getbyname",documentcontroller.getbyname)
+route.put("/update/:id",upload.array('photos'),documentcontroller.update)
+route.delete("/delete/:id",documentcontroller.delete)
+module.exports=route
